@@ -1,11 +1,34 @@
 package cs208;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PracticeController
 {
     // TODO: create a GET route with two query parameters
+    @GetMapping("/display_name")
+    String getSearchWithTwoParameters(
+            @RequestParam("first_name") String first_name,
+            @RequestParam("last_name") String last_name
+    )
+    {
+        System.out.println("TutorialController.getSearchWithTwoParameters - START");
+        System.out.println("parameter1 sent in the browser URL = " + first_name);
+        System.out.println("parameter2 sent in the browser URL = " + last_name);
+        System.out.println("TutorialController.getSearchWithTwoParameters - END");
+
+        String valueReturnedToBrowser =
+                "These are the values of parameters passed in the URL:<br>" +
+                        "parameter1 = " + first_name + "<br>" +
+                        "parameter2 = " + last_name + "<br><br>" +
+                        "NOTE: the parameters are separated in the URL by an ampersand (&amp;) character.<br><br>" +
+                        "<hr>" +
+                        "Find me in the TutorialController.getSearchWithTwoParameters() method";
+
+        return valueReturnedToBrowser;
+    }
 
 
     // TODO: create a GET route with a path parameter
