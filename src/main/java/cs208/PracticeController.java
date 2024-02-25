@@ -75,18 +75,18 @@ public class PracticeController
 
     // TODO: create a PATCH route
     @PatchMapping("/user/{userName}/update_profile")
-    String patchIssuesWithOnePathVariableAndOneFormParameter(
+    String patchUserWithOnePathVariableAndOneFormParameter(
             @PathVariable("userName") String userName,
             @RequestParam("theme") String theme,
             @RequestParam("language_code") String language_code
     )
     {
-        System.out.println("PracticeController.patchIssuesWithOnePathVariableAndOneFormParameter - START");
+        System.out.println("PracticeController.patchUserWithOnePathVariableAndOneFormParameter - START");
         System.out.println("Parameter received in the path of the URL: " + userName);
         System.out.println("Parameter received in the body of the PATCH request:");
         System.out.println("theme = " + theme);
         System.out.println("language_code    = " + language_code);
-        System.out.println("PracticeController.patchIssuesWithOnePathVariableAndOneFormParameter - END");
+        System.out.println("PracticeController.patchUserWithOnePathVariableAndOneFormParameter - END");
 
         String valueReturnedToClient =
                 "Parameter received in the path of the URL:\n" +
@@ -97,13 +97,31 @@ public class PracticeController
                         "This REST API route would update user with userName " + userName + " with the " +
                         "new language_code and new theme value passed in the body of the PATCH request.\n\n" +
                         "<hr>" +
-                        "Find me in the PracticeController.patchIssuesWithOnePathVariableAndOneFormParameter() method";
+                        "Find me in the PracticeController.patchUserWithOnePathVariableAndOneFormParameter() method";
 
         return valueReturnedToClient;
     }
 
 
     // TODO: create a DELETE route
+
+    @DeleteMapping("/resource/{resourceId}")
+    String deleteResourceWithOnePathVariable(@PathVariable("resourceId") String resourceId)
+    {
+        System.out.println("PracticeController.deleteResourceWithOnePathVariable - START");
+        System.out.println("Parameter received in the path of the URL:");
+        System.out.println("resourceId = " + resourceId);
+        System.out.println("TutorialController.deleteResourceWithOnePathVariable - END");
+
+        String valueReturnedToClient =
+                "Parameter received in the path of the URL:\n" +
+                        "resourceId = " + resourceId + "\n\n" +
+                        "This REST API route would delete the issue with id " + resourceId + ".\n\n" +
+                        "<hr>" +
+                        "Find me in the PracticeController.deleteResourceWithOnePathVariable() method";
+
+        return valueReturnedToClient;
+    }
 
 
     // TODO: create a GET API that returns a random resource
