@@ -74,6 +74,33 @@ public class PracticeController
 
 
     // TODO: create a PATCH route
+    @PatchMapping("/user/{userName}/update_profile")
+    String patchIssuesWithOnePathVariableAndOneFormParameter(
+            @PathVariable("userName") String userName,
+            @RequestParam("theme") String theme,
+            @RequestParam("language_code") String language_code
+    )
+    {
+        System.out.println("PracticeController.patchIssuesWithOnePathVariableAndOneFormParameter - START");
+        System.out.println("Parameter received in the path of the URL: " + userName);
+        System.out.println("Parameter received in the body of the PATCH request:");
+        System.out.println("theme = " + theme);
+        System.out.println("language_code    = " + language_code);
+        System.out.println("PracticeController.patchIssuesWithOnePathVariableAndOneFormParameter - END");
+
+        String valueReturnedToClient =
+                "Parameter received in the path of the URL:\n" +
+                        "userName = " + userName + "\n\n"+
+                        "Parameter received in the body of the PATCH request:\n" +
+                        "theme = " + theme + "\n\n" +
+                        "language_code    = " + language_code + "\n\n" +
+                        "This REST API route would update user with userName " + userName + " with the " +
+                        "new language_code and new theme value passed in the body of the PATCH request.\n\n" +
+                        "<hr>" +
+                        "Find me in the PracticeController.patchIssuesWithOnePathVariableAndOneFormParameter() method";
+
+        return valueReturnedToClient;
+    }
 
 
     // TODO: create a DELETE route
